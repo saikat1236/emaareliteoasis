@@ -1465,7 +1465,7 @@ span.call-us-fields.open_enquiry_form i {
 #fixed-footer {
     padding: 5px 0px;
     /* margin: 0 15px; */
-    background-color: white;
+    background-color: #C3935f;
     color: #fff;
     border-radius: 100px;
 }
@@ -2270,4 +2270,24 @@ form>div:nth-child(6)>div:nth-child(1)>div>label {
         padding: 1px 5px;
         top: -15px;
     }
+}
+
+/* Footer social icons (added for facebook & instagram below Disclaimer) */
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 8px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-decoration: none;
+}
+.footer-social a i {
+    vertical-align: middle;
+}
+.footer-social a:hover i {
+    color: var(--primary-color);
 }
