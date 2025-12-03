@@ -65,7 +65,7 @@ i.ri-download-2-fill.slide-down {
     width: 50px;
     height: 50px;
     border: 5px solid #00000042;
-    border-top-color: purple;
+    border-top-color: white;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -151,7 +151,7 @@ i.ri-download-2-fill.slide-down {
     font-weight: 400;
     position: relative;
     text-transform: uppercase;
-    color: #fff;
+    color: #000000;
 }
 
 .contact-btn {
@@ -161,7 +161,7 @@ i.ri-download-2-fill.slide-down {
     width: 48px;
     height: 48px;
     border-radius: 100%;
-    background: #fff;
+    background: #000000;
     box-shadow: var(--shadow-props);
     font-size: 24px;
     color: var(--housing-color);
@@ -169,7 +169,7 @@ i.ri-download-2-fill.slide-down {
 }
 
 .download-brochure-link {
-    color: #fff;
+    color: #000000;
     background-color: #e6b84e;
     border: 2px solid #e6b84e;
     display: inline-flex;
@@ -196,7 +196,7 @@ i.ri-download-2-fill.slide-down {
     animation: slideDown 2s ease-out;
     display: inline-block;
     animation-iteration-count: infinite;
-    color: white;
+    color: #000;
     margin-top: 8px;
 }
 
@@ -464,7 +464,7 @@ header.sticky {
 
 .navbar-brand,
 .nav-link {
-    color: #f1f1f1;
+    color: #000000;
     text-transform: uppercase;
     font-weight: 700;
 }
@@ -1460,7 +1460,7 @@ span.call-us-fields.open_enquiry_form i {
 #fixed-footer {
     padding: 5px 0px;
     /* margin: 0 15px; */
-    background-color: purple;
+    background-color: white;
     color: #fff;
     border-radius: 100px;
 }
@@ -1558,7 +1558,7 @@ li.country.standard {
 }
 
 h4.price {
-    color: purple;
+    color: white;
     font-weight: 900;
     font-size: 2rem;
 }
@@ -1579,7 +1579,7 @@ button.carousel-control-next div {
 }
 
 .call-btn-bottom {
-    background-color: purple;
+    background-color: white;
     border-radius: 0 5px 5px 0;
     color: #fff;
 }
@@ -1590,14 +1590,14 @@ button.carousel-control-next div {
 }
 
 .whatsapp-btn-botton {
-    border: 4px solid purple;
-    color: purple;
+    border: 4px solid white;
+    color: white;
     background-color: #fff;
     border-radius: 5px 0px 0px 5px;
 }
 
 .whatsapp-btn-botton .fixed-footer-icons {
-    color: purple;
+    color: white;
 }
 
 /* End Custom CSS */
@@ -2231,7 +2231,7 @@ form>div:nth-child(6)>div:nth-child(1)>div>label {
     right: 0;
     z-index: 1000;
     transition: all 0.3s ease-out;
-    background-color: purple;
+    background-color: white;
 }
 
 #header.animated {
