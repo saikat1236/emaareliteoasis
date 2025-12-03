@@ -43,7 +43,7 @@ var swiper = new Swiper(".project-approved", {
             slidesPerView: 5,
         },
         768: {
-            slidesPerView: 3,
+            slidesPerView: 2,
         },
         548: {
             slidesPerView: 2,
@@ -105,6 +105,29 @@ var swiper = new Swiper(".overview-slider", {
     },
 });
 var swiper = new Swiper(".amenities-slider", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+    },
+    breakpoints: {
+        1024: {
+            slidesPerView: 3,
+        },
+        640: {
+            slidesPerView: 2,
+        },
+        300: {
+            slidesPerView: 1,
+        },
+    },
+});
+var swiper = new Swiper(".custom-slider", {
     slidesPerView: 3,
     spaceBetween: 30,
     navigation: {
