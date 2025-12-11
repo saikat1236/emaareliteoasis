@@ -78,10 +78,20 @@
                             <li class="nav-item custom-nav-item ps-0 pe-0">
                                 <a class="nav-link" href="#location">Location</a>
               
-                            <li class="nav-item custom-nav-item ps-0 pe-0" onclick=openPop()>
+                            <li class="nav-item custom-nav-item ps-0 pe-0" onclick=downloadPDF()>
                                 <i class="ri-download-2-fill slide-down"></i>
                                 <a class="nav-link " href="javascript:void(0)">Brochure</a>
                             </li>
+                            <script>
+function downloadPDF() {
+    const link = document.createElement('a');
+    link.href = 'Emaar Elite Oasis Brochure.pdf';  // Replace with your PDF URL
+    link.download = 'Emaar Elite Oasis Brochure.pdf';           // Optional: suggested filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
                             <li class="nav-item mx-auto">
                                 <a href="tel:9005157779" class="download-brochure-link">+91 900 515 7779</a>
                             </li>
@@ -160,11 +170,28 @@
                         <i class="ri-arrow-right-line"></i>
                     </span> Enquire Now
                 </a>
-                <button onclick=openPop() class="inquiry-btn download-option">
+             <button onclick="downloadPDF()" class="inquiry-btn download-option">
+    <span class="tel-icons">
+        <i class="ri-download-2-fill"></i>
+    </span> Download Brochure
+</button>
+                            <script>
+function downloadPDF() {
+    const link = document.createElement('a');
+    link.href = 'Emaar Elite Oasis Brochure.pdf';  // Replace with your PDF URL
+    link.download = 'Emaar Elite Oasis Brochure.pdf';           // Optional: suggested filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+
+
+                <!-- <button  class="inquiry-btn download-option">
                     <span class="tel-icons">
                         <i class="ri-download-2-fill"></i>
                     </span> Download Brochure
-                </button>
+                </button> -->
             </div>
         </div>
     </section>
@@ -273,7 +300,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
       background:#fff; border-radius:12px; 
       font-family:'Segoe UI',Arial,sans-serif; text-align:center;
     ">
-                    <h2 style="margin:0 0 20px; font-weight:600; color:#1a1a1a;">Emaar Elite Oasis</h2>
+                    <!-- <h2 style="margin:0 0 20px; font-weight:600; color:#1a1a1a;">Emaar Elite Oasis</h2> -->
 
                     <!-- Full Name -->
                     <input type="text" id="fullName" name="fullName" placeholder="Full Name" required style="width:100%; padding:12px 14px; margin:10px 0;
@@ -318,11 +345,11 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
 
                 <script>
                     // ==== CONFIG: ONLY CHANGE THESE TWO LINES ====
-                    // const ENTERPRISE_ID = '67a7003330262522224668d2';
-                    // const API_TOKEN = '03ca4169-eee1-4d26-8f33-aa496f0078001763095481413:510dcbfb-bead-4c2f-a7f2-c85f461be485';
+                    const ENTERPRISE_ID = '67a7003330262522224668d2';
+                    const API_TOKEN = '03ca4169-eee1-4d26-8f33-aa496f0078001763095481413:510dcbfb-bead-4c2f-a7f2-c85f461be485';
                     // // ==============================================
 
-                    // const ENDPOINT = `https://next.telecrm.in/autoupdate/v2/enterprise/${ENTERPRISE_ID}/lead`;
+                    const ENDPOINT = `https://next.telecrm.in/autoupdate/v2/enterprise/${ENTERPRISE_ID}/lead`;
 
                     document.getElementById('telecrmForm').addEventListener('submit', async (e) => {
                         e.preventDefault(); // Stop normal form submit
@@ -346,7 +373,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                                 rating: 0,
                                 status: 'Fresh',
                                 property1: bhk,
-                                lead_source_1: 'Jashn Website',
+                                lead_source_1: 'Emaar Elite Oasis',
                             },
                             actions: []
                         };
@@ -370,7 +397,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                                 // 1. Download PDF
                                 const link = document.createElement('a');
                                 link.href = "Emaar Elite Oasis Brochure.pdf";
-                                link.download = 'Jashn_Elevate_Brochure.pdf'; // Optional: custom filename
+                                link.download = 'Emaar_Elite_Oasis_Brochure.pdf'; // Optional: custom filename
                                 document.body.appendChild(link);
                                 link.click();
                                 document.body.removeChild(link);
@@ -381,9 +408,12 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                                         closePop();
                                     }
                                 }, 300); // Small delay to ensure download starts
-                                e.target.reset(); // Clears all inputs (works because it's a <form>)
+                                       // Redirect to thank you page
+                                    window.location.href = 'thank-you.html';
+                                    e.target.reset(); // Clears all inputs (works because it's a <form>)
                             } else {
-                                alert(`Error ${res.status}: ${responseText || 'Failed to send.'}`);
+                                console.error('Error Response:', res.status, responseText);
+                                // alert(`Error ${res.status}: ${responseText || 'Failed to send.'}`);
                             }
                         } catch (err) {
                             console.error('Network/API Error:', err);
@@ -985,35 +1015,35 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                         <div class="swiper-slide">
                             <div >
                                 <div class="images">
-                                    <img  style="object-fit:cover; width:100% ;"  src="assets/Images/emaar/e1.jpeg" alt="Reception_View">
+                                    <img  style="object-fit:contain; width:100% ;"  src="assets/Images/emaar/e1.jpeg" alt="Reception_View">
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div >
                                 <div class="images">
-                                                         <img  style="object-fit:cover; width:100% ;" src="assets/Images/emaar/e2.jpeg" alt="Reception_View">
+                                    <img  style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e2.jpeg" alt="Reception_View">
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div >
                                 <div class="images">
-                                    <img  style="object-fit:cover; width:100% ;" src="assets/Images/emaar/e3.jpeg" alt="Reception_View">
+                                    <img  style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e3.jpeg" alt="Reception_View">
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="amenities-overlap">
                                 <div class="images">
-                                    <img  style="object-fit:cover; width:100% ;" src="assets/Images/emaar/e4.jpeg" alt="Reception_View">
+                                    <img  style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e4.jpeg" alt="Reception_View">
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="amenities-overlap">
                                 <div class="images">
-                                    <img  style="object-fit:cover; width:100% ;" src="assets/Images/emaar/e5.jpeg" alt="Reception_View">
+                                    <img  style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e5.jpeg" alt="Reception_View">
                                 </div>
                             </div>
                         </div>
@@ -1229,7 +1259,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                             Super Speciality Cancer Institute, and Mother and Child State Referral Hospital.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
+                <!-- <div class="accordion-item">
                     <button class="accordion-header">
                         How many housing societies are there in Sushant Golf City?
                         <i class="ri-add-line"></i>
@@ -1237,7 +1267,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                     <div class="accordion-content">
                         <p>Sushant Golf City hosts 38 housing societies, with 8 ongoing projects and 2 new launches.</p>
                     </div>
-                </div>
+                </div> -->
                 <div class="accordion-item">
                     <button class="accordion-header">
                         When will Emaar Elite Oasis be ready for possession?
@@ -1406,81 +1436,84 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
           ">Submit</button>
                     </form>
 
-                    <script>
-                        // ==== CONFIG: ONLY CHANGE THESE TWO LINES ====
-                        const ENTERPRISE_ID = '67a7003330262522224668d2';
-                        const API_TOKEN = '03ca4169-eee1-4d26-8f33-aa496f0078001763095481413:510dcbfb-bead-4c2f-a7f2-c85f461be485';
-                        // ==============================================
+                          <script>
+                    // ==== CONFIG: ONLY CHANGE THESE TWO LINES ====
+                    const ENTERPRISE_ID = '67a7003330262522224668d2';
+                    const API_TOKEN = '03ca4169-eee1-4d26-8f33-aa496f0078001763095481413:510dcbfb-bead-4c2f-a7f2-c85f461be485';
+                    // // ==============================================
 
-                        const ENDPOINT = `https://next.telecrm.in/autoupdate/v2/enterprise/${ENTERPRISE_ID}/lead`;
+                    const ENDPOINT = `https://next.telecrm.in/autoupdate/v2/enterprise/${ENTERPRISE_ID}/lead`;
 
-                        document.getElementById('telecrmForm').addEventListener('submit', async (e) => {
-                            e.preventDefault(); // Stop normal form submit
+                    document.getElementById('telecrmForm').addEventListener('submit', async (e) => {
+                        e.preventDefault(); // Stop normal form submit
 
-                            // Collect values
-                            const name = document.getElementById('fullName').value.trim();
-                            const email = document.getElementById('email').value.trim();
-                            const phoneInput = document.getElementById('phone').value.trim();
-                            const bhk = Array.from(document.querySelectorAll('input[name="bhk"]:checked'))
-                                .map(cb => cb.value).join(', ') || 'Not selected';
+                        // Collect values
+                        const name = document.getElementById('fullName').value.trim();
+                        const email = document.getElementById('email').value.trim();
+                        const phoneInput = document.getElementById('phone').value.trim();
+                        const bhk = Array.from(document.querySelectorAll('input[name="bhk"]:checked'))
+                            .map(cb => cb.value).join(', ') || 'Not selected';
 
-                            // Build clean phone with +91
-                            const phone = '+91' + phoneInput.replace(/\D/g, '');
+                        // Build clean phone with +91
+                        const phone = '+91' + phoneInput.replace(/\D/g, '');
 
-                            // Build TeleCRM payload
-                            const payload = {
-                                fields: {
-                                    name: name,
-                                    phone: phone,
-                                    email: email,
-                                    rating: 0,
-                                    status: 'Fresh',
-                                    property1: bhk,
-                                    lead_source_1: 'Jashn Website',
+                        // Build TeleCRM payload
+                        const payload = {
+                            fields: {
+                                name: name,
+                                phone: phone,
+                                email: email,
+                                rating: 0,
+                                status: 'Fresh',
+                                property1: bhk,
+                                lead_source_1: 'Emaar Elite Oasis',
+                            },
+                            actions: []
+                        };
+
+                        console.log('Sending to TeleCRM:', payload);
+
+                        try {
+                            const res = await fetch(ENDPOINT, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${API_TOKEN}`
                                 },
-                                actions: []
-                            };
+                                body: JSON.stringify(payload)
+                            });
 
-                            console.log('Sending to TeleCRM:', payload);
+                            const responseText = await res.text();
+                            console.log('Response:', res.status, responseText);
 
-                            try {
-                                const res = await fetch(ENDPOINT, {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                        'Authorization': `Bearer ${API_TOKEN}`
-                                    },
-                                    body: JSON.stringify(payload)
-                                });
+                            if (res.ok) {
+                                // 1. Download PDF
+                                const link = document.createElement('a');
+                                link.href = "Emaar Elite Oasis Brochure.pdf";
+                                link.download = 'Emaar_Elite_Oasis_Brochure.pdf'; // Optional: custom filename
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
 
-                                const responseText = await res.text();
-                                console.log('Response:', res.status, responseText);
-
-                                if (res.ok) {
-                                    // 1. Download PDF
-                                    const link = document.createElement('a');
-                                    link.href = "Emaar Elite Oasis Brochure.pdf";
-                                    link.download = 'Jashn_Elevate_Brochure.pdf'; // Optional: custom filename
-                                    document.body.appendChild(link);
-                                    link.click();
-                                    document.body.removeChild(link);
-
-                                    // 2. Close popup using your existing function
-                                    setTimeout(() => {
-                                        if (typeof closePop === 'function') {
-                                            closePop();
-                                        }
-                                    }, 300); // Small delay to ensure download starts
+                                // 2. Close popup using your existing function
+                                setTimeout(() => {
+                                    if (typeof closePop === 'function') {
+                                        closePop();
+                                    }
+                                }, 300); // Small delay to ensure download starts
+                                       // Redirect to thank you page
+                                    window.location.href = 'thank-you.html';
                                     e.target.reset(); // Clears all inputs (works because it's a <form>)
-                                } else {
-                                    alert(`Error ${res.status}: ${responseText || 'Failed to send.'}`);
-                                }
-                            } catch (err) {
-                                console.error('Network/API Error:', err);
-                                alert('Connection failed. Check internet or console (F12).');
+                            } else {
+                                console.error('Error Response:', res.status, responseText);
+                                // alert(`Error ${res.status}: ${responseText || 'Failed to send.'}`);
                             }
-                        });
-                    </script>
+                        } catch (err) {
+                            console.error('Network/API Error:', err);
+                            alert('Connection failed. Check internet or console (F12).');
+                        }
+                    });
+                </script>
 
 
 
