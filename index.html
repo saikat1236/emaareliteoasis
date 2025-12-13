@@ -1805,6 +1805,122 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
         // Call thankYou initially to set up the links
         thankYou();
     </script>
+
+        <!-- Site entry popup: appears on first page load -->
+    <div id="entryPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1200; justify-content:center; align-items:center;">
+        <div style="background:#fff; width:92%; max-width:420px; border-radius:12px; padding:18px; position:relative;">
+            <button id="entryClose" aria-label="Close" style="position:absolute; right:12px; top:12px; background:transparent; border:none; font-size:20px; cursor:pointer;">&times;</button>
+            <h3 style="text-align:center; margin-top:4px;">Enquire Now</h3>
+            <form id="entryForm" style="max-width:100%; margin:6px auto; text-align:center;">
+                <input type="text" id="entryFullName" name="fullName" placeholder="Full Name" required style="width:100%; padding:12px 14px; margin:10px 0; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
+                <div style="display:flex; gap:10px; margin:10px 0;">
+                    <div style="flex:1; position:relative;">
+                        <input type="tel" id="entryPhone" name="phone" placeholder="Phone" required style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
+                    </div>
+                    <div style="flex:1; position:relative;">
+                        <input type="email" id="entryEmail" name="email" placeholder="Email" required style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
+                    </div>
+                </div>
+                <button type="submit" id="entrySubmit" style="width:100%; padding:14px; margin-top:10px; background:#192a3b; color:white; border:none; border-radius:50px; font-weight:600; font-size:16px; cursor:pointer;">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Show entry popup when the page loads, but only once per user using localStorage
+        document.addEventListener('DOMContentLoaded', function () {
+            const entryPopup = document.getElementById('entryPopup');
+            const entryClose = document.getElementById('entryClose');
+            const entryForm = document.getElementById('entryForm');
+
+            // If already shown before, skip showing again
+            try {
+                const shown = localStorage.getItem('entryPopupShown');
+                if (shown === '1') return; // do not show again
+            } catch (err) {
+                // If localStorage is not available, fall back to showing once per session using sessionStorage
+                try {
+                    const sShown = sessionStorage.getItem('entryPopupShown');
+                    if (sShown === '1') return;
+                } catch (e) {
+                    // ignore
+                }
+            }
+
+            // Show popup
+            entryPopup.style.display = 'flex';
+
+            function markShown() {
+                try { localStorage.setItem('entryPopupShown', '1'); } catch (e) { try { sessionStorage.setItem('entryPopupShown', '1'); } catch (e) { /* ignore */ } }
+            }
+
+            // Close handler: mark as shown so it won't reappear (close only via the close button)
+            entryClose.addEventListener('click', () => { markShown(); entryPopup.style.display = 'none'; });
+            // Note: intentionally do NOT close when user clicks outside the popup content.
+            // This keeps the popup visible until the user explicitly closes it or submits the form.
+
+            // On submit: send to TeleCRM, mark shown and redirect on success
+            entryForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const entrySubmitBtn = document.getElementById('entrySubmit');
+                const originalText = entrySubmitBtn ? entrySubmitBtn.innerText : '';
+                if (entrySubmitBtn) { entrySubmitBtn.disabled = true; entrySubmitBtn.innerText = 'Sending...'; }
+
+                const name = document.getElementById('entryFullName').value.trim();
+                const email = document.getElementById('entryEmail').value.trim();
+                const phoneInput = document.getElementById('entryPhone').value.trim();
+
+                // Normalize phone
+                let phoneDigits = phoneInput.replace(/\D/g, '');
+                if (!phoneDigits.startsWith('91')) phoneDigits = '91' + phoneDigits;
+                const phone = '+' + phoneDigits;
+
+                const payload = {
+                    fields: {
+                        name: name,
+                        phone: phone,
+                        email: email,
+                        rating: 0,
+                        status: 'Fresh',
+                        property1: 'Popup Enquiry',
+                        lead_source_1: 'Pardos Okas',
+                    },
+                    actions: []
+                };
+
+                try {
+                    const res = await fetch(ENDPOINT, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${API_TOKEN}`
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    let body;
+                    const ct = res.headers.get('content-type') || '';
+                    if (ct.includes('application/json')) body = await res.json(); else body = await res.text();
+                    console.log('Popup TeleCRM response', res.status, body);
+
+                    if (res.ok) {
+                        markShown();
+                        window.location.href = 'thank-you.html';
+                        return;
+                    }
+
+                    const errMsg = typeof body === 'string' ? body : JSON.stringify(body);
+                    alert(`TeleCRM error ${res.status}: ${errMsg}`);
+                } catch (err) {
+                    console.error('Popup Network/API Error:', err);
+                    alert('Connection failed for popup form. This may be a CORS/network issue — check console.');
+                } finally {
+                    if (entrySubmitBtn) { entrySubmitBtn.disabled = false; entrySubmitBtn.innerText = originalText; }
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
