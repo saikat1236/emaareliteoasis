@@ -26,6 +26,28 @@
 
         gtag('config', 'G-RKTCXSE7PN');
     </script>
+
+    <script>
+        // Attempt to force autoplay for muted videos
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('video.responsive-iframe').forEach(function (v) {
+                try {
+                    // Ensure video is muted to satisfy autoplay policies
+                    v.muted = true;
+                    v.setAttribute('autoplay', '');
+                    // Attempt to play; browsers may still block autoplay in some cases
+                    const p = v.play();
+                    if (p && typeof p.then === 'function') {
+                        p.catch(function (err) {
+                            console.debug('Autoplay blocked for video:', err);
+                        });
+                    }
+                } catch (err) {
+                    console.debug('Video autoplay error', err);
+                }
+            });
+        });
+    </script>
     <!-- Meta Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
@@ -77,21 +99,21 @@
                             </li>
                             <li class="nav-item custom-nav-item ps-0 pe-0">
                                 <a class="nav-link" href="#location">Location</a>
-              
+
                             <li class="nav-item custom-nav-item ps-0 pe-0" onclick=downloadPDF()>
                                 <i class="ri-download-2-fill slide-down"></i>
                                 <a class="nav-link " href="javascript:void(0)">Brochure</a>
                             </li>
                             <script>
-function downloadPDF() {
-    const link = document.createElement('a');
-    link.href = 'Emaar Elite Oasis Brochure.pdf';  // Replace with your PDF URL
-    link.download = 'Emaar Elite Oasis Brochure.pdf';           // Optional: suggested filename
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-</script>
+                                function downloadPDF() {
+                                    const link = document.createElement('a');
+                                    link.href = 'Emaar Elite Oasis Brochure.pdf';  // Replace with your PDF URL
+                                    link.download = 'Emaar Elite Oasis Brochure.pdf';           // Optional: suggested filename
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+                                }
+                            </script>
                             <li class="nav-item mx-auto">
                                 <a href="tel:9005157779" class="download-brochure-link">+91 900 515 7779</a>
                             </li>
@@ -117,7 +139,7 @@ function downloadPDF() {
                             <img src="assets/Images/emaar/b1.jpeg" class="d-block w-100" alt="Banner">
                         </div>
                     </div>
-                                        <div class="swiper-slide">
+                    <div class="swiper-slide">
                         <div class="slider-loader">
                             <img src="assets/Images/emaar/b2.jpeg" class="d-block w-100" alt="Banner">
                         </div>
@@ -142,9 +164,10 @@ function downloadPDF() {
                         <p class="mb-1 mt-2">Project Name: <b>Emaar Elite Oasis</b></p>
                         <p class="mb-1">Project RERA No. - <b>UPRERAPRJ944123/02/2025</b></p>
                         <p class="mb-1">Rera Website: <b>www.up-rera.in</b></p>
-                        <p class="mb-1">Name of the Account: <b>Emaar India Limited - Collection A/c for Elite Oasis</b></p>
+                        <p class="mb-1">Name of the Account: <b>Emaar India Limited - Collection A/c for Elite Oasis</b>
+                        </p>
                         <p class="mb-1">Account No.: <b> 924020063477730, Bank Name: Axis Bank , Branch Name:
-                                Lucknow Branch  | IFSC Code: UTIB0000053</b></p>
+                                Lucknow Branch | IFSC Code: UTIB0000053</b></p>
 
                         <p class="mb-1">Launch Date: <b>4 June 2025</b></p>
 
@@ -154,8 +177,10 @@ function downloadPDF() {
                     </div>
                 </div>
                 <!-- <h4 class="text-center jashn">Emaar Elite Oasis</h4> -->
-                <p class="text-center mt-2 mb-2 mobile-m-top" style="font-size:medium;"><b>Luxurious 3 & 4 BHK Luxury Residences</b></p>
-                <p class="text-center mt-2 mb-2"><b><i class="ri-map-pin-2-fill"></i> Gomti Nagar Extension, Lucknow</b></p>
+                <p class="text-center mt-2 mb-2 mobile-m-top" style="font-size:medium;"><b>Luxurious 3 & 4 BHK Luxury
+                        Residences</b></p>
+                <p class="text-center mt-2 mb-2"><b><i class="ri-map-pin-2-fill"></i> Gomti Nagar Extension, Lucknow</b>
+                </p>
                 <div class="text-center rera-button">Starting Price ₹ 2.9 Crore</div>
                 <!-- <div class="rera-form-show">
                     <script src='//forms.cdn.sell.do/t/forms/64e8470c4443ae6d5f19f377/66ebcdbd58f1e7d0979cc4d4.js'
@@ -170,21 +195,21 @@ function downloadPDF() {
                         <i class="ri-arrow-right-line"></i>
                     </span> Enquire Now
                 </a>
-             <button onclick="downloadPDF()" class="inquiry-btn download-option">
-    <span class="tel-icons">
-        <i class="ri-download-2-fill"></i>
-    </span> Download Brochure
-</button>
-                            <script>
-function downloadPDF() {
-    const link = document.createElement('a');
-    link.href = 'Emaar Elite Oasis Brochure.pdf';  // Replace with your PDF URL
-    link.download = 'Emaar Elite Oasis Brochure.pdf';           // Optional: suggested filename
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-</script>
+                <button onclick="downloadPDF()" class="inquiry-btn download-option">
+                    <span class="tel-icons">
+                        <i class="ri-download-2-fill"></i>
+                    </span> Download Brochure
+                </button>
+                <script>
+                    function downloadPDF() {
+                        const link = document.createElement('a');
+                        link.href = 'Emaar Elite Oasis Brochure.pdf';  // Replace with your PDF URL
+                        link.download = 'Emaar Elite Oasis Brochure.pdf';           // Optional: suggested filename
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+                </script>
 
 
                 <!-- <button  class="inquiry-btn download-option">
@@ -199,12 +224,22 @@ function downloadPDF() {
     <!-- Start Content-->
     <section>
         <div class="container">
-            <h4 class="section-heading">Welcome to Emaar Elite Oasis</br>Luxury Living at Gomti Nagar Extension, Lucknow</h4>
-            <div class="sub-heading">Welcome To Emaar Elite Oasis Lucknow in Gomti Nagar Spread across 15.58 acres, it features 3 & 4 BHK apartments that are both modern and spacious. On 3acres of land, the project gives you and your family a calm and green environment.
-Stylishly furnished interior and big balconies allows you a panoramic view of the Gomti River. Here, one can experience fresh air and natural beauty every day.
-It’s also a great location for families. It is near to Police Head Office, so you are safe and secure. Additionally, the well-known Ekana International Stadium is also in close proximity, tempting sports fans who would love to see matches and events.
-There is no evidence to confirm that Emaar Elite Oasis Lucknow. Amenities in the project include modern such as a swimming pool, gym, kids' play area, and landscaped gardens among others. It is near all schools, hospitals, shopping centers, restaurants, etc., allowing for a smooth and comfortable lifestyle.
-Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for a dream home in Lucknow. Enjoy the best of both worlds with nature and city in a luxury living.</div>
+            <h4 class="section-heading">Welcome to Emaar Elite Oasis</br>Luxury Living at Gomti Nagar Extension, Lucknow
+            </h4>
+            <div class="sub-heading">Welcome To Emaar Elite Oasis Lucknow in Gomti Nagar Spread across 15.58 acres, it
+                features 3 & 4 BHK apartments that are both modern and spacious. On 3acres of land, the project gives
+                you and your family a calm and green environment.
+                Stylishly furnished interior and big balconies allows you a panoramic view of the Gomti River. Here, one
+                can experience fresh air and natural beauty every day.
+                It’s also a great location for families. It is near to Police Head Office, so you are safe and secure.
+                Additionally, the well-known Ekana International Stadium is also in close proximity, tempting sports
+                fans who would love to see matches and events.
+                There is no evidence to confirm that Emaar Elite Oasis Lucknow. Amenities in the project include modern
+                such as a swimming pool, gym, kids' play area, and landscaped gardens among others. It is near all
+                schools, hospitals, shopping centers, restaurants, etc., allowing for a smooth and comfortable
+                lifestyle.
+                Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for a dream home in Lucknow.
+                Enjoy the best of both worlds with nature and city in a luxury living.</div>
         </div>
     </section>
     <!-- End Content -->
@@ -408,9 +443,9 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                                         closePop();
                                     }
                                 }, 300); // Small delay to ensure download starts
-                                       // Redirect to thank you page
-                                    window.location.href = 'thank-you.html';
-                                    e.target.reset(); // Clears all inputs (works because it's a <form>)
+                                // Redirect to thank you page
+                                window.location.href = 'thank-you.html';
+                                e.target.reset(); // Clears all inputs (works because it's a <form>)
                             } else {
                                 console.error('Error Response:', res.status, responseText);
                                 // alert(`Error ${res.status}: ${responseText || 'Failed to send.'}`);
@@ -430,14 +465,53 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
     </section>
     <!-- Ebd Get in Touch -->
     <!-- Start Content -->
-    <section>
-        <div class="container">
-            <h4 class="section-heading">Why Choose Emaar Elite Oasis?</h4>
-            <div class="sub-heading">Choose Emaar Elite Oasis for a luxurious, tranquil, and connected lifestyle in a prime Lucknow location, thanks to its modern amenities, high-quality construction, and strategic positioning. The project offers spacious 3 and 4 BHK residences with resort-like amenities and a strong focus on comfort and an enriched living experience. 
+<section style="padding: 60px 0; background: #f8f9fa;">
+    <div class="container">
+        <h4 class="section-heading text-center text-uppercase fw-bold mb-5" >
+            Why Choose Emaar Elite Oasis?
+        </h4>
 
+        <!-- Flex row container -->
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0; margin: 0 -15px;">
+            
+            <!-- Video Column (Left) -->
+      <div style="flex: 1 1 50%; padding: 0 15px; min-width: 300px; box-sizing: border-box;">
+    <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; background: #d1d5db; overflow: hidden;">
+        <video 
+            autoplay 
+            muted 
+            playsinline 
+            loop 
+            style="
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: auto;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                transform: translate(-50%, -50%);
+            ">
+            <source src="assets/Images/emaar/IMG_1204.MOV" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+
+            <!-- Text Column (Right) -->
+            <div style="flex: 1 1 50%; padding: 0 15px; min-width: 300px; box-sizing: border-box; display: flex; align-items: center;">
+                <div class="sub-heading" style="font-size: 1.1rem; line-height: 1.8; color: #333;">
+                    Choose Emaar Elite Oasis for a luxurious, tranquil, and connected lifestyle in a prime
+                    Lucknow location, thanks to its modern amenities, high-quality construction, and strategic
+                    positioning. The project offers spacious 3 and 4 BHK residences with resort-like amenities
+                    and a strong focus on comfort and an enriched living experience.
+                </div>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
     <!-- End Content -->
     <!-- Start Overview -->
     <section id="overview">
@@ -446,7 +520,8 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                 <h4 class="section-heading">Overview</h4>
                 <div class="sub-heading">Introducing Emaar Elite Oasis: where serene beauty meets modern amenities &
                     tranquility. Get your gateway to a GRAND “way of life” with high-rise living in one of the most
-                    luxurious residential projects in Lucknow brought to you by Emaar Elite Oasis, a trusted name in the real
+                    luxurious residential projects in Lucknow brought to you by Emaar Elite Oasis, a trusted name in the
+                    real
                     estate industry.</div>
             </div>
             <div class="overview-body">
@@ -458,19 +533,6 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                     <button class="play_pause_button" data-video="video1"><i class="ri-play-circle-fill"></i></button>
                     <button class="audio-mute" data-video="video1"><i class="ri-volume-mute-fill"></i></button>
                 </div>
-                <!-- <div class="mt-4 row justify-content-center align-items-center">
-                    <div class="col-12 text-center">
-                        <a href="tel:9005157779" class="inquiry-btn contact-option">
-                            <span class="tel-icons">
-                                <i class="ri-arrow-right-line"></i>
-                            </span> Enquire Now
-                        </a>
-                        <button onclick="openPop()" class="inquiry-btn download-option">
-                            <span class="tel-icons">
-                                <i class="ri-download-2-fill"></i>
-                            </span> Download Brochure
-                        </button>
-                    </div> -->
             </div>
             <!-- <section>
                 <div class="overview-grid">
@@ -558,7 +620,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
             <div class="amenities-body">
                 <div class="swiper amenities-slider">
                     <div class="swiper-wrapper">
-                        
+
                         <div class="swiper-slide">
                             <div class="amenities-overlap">
                                 <div>
@@ -569,7 +631,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                         </div>
                         <div class="swiper-slide">
                             <div class="amenities-overlap">
-                                <div >
+                                <div>
                                     <img width="100%" src="assets/Images/emaar/bed.jpeg" alt="Kids Play">
                                 </div>
                                 <div class="amenities-overlap-text">Master Bedroom</div>
@@ -577,7 +639,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                         </div>
                         <div class="swiper-slide">
                             <div class="amenities-overlap">
-                                <div >
+                                <div>
                                     <img width="100%" src="assets/Images/emaar/bed2.jpeg" alt="Forest Trail">
                                 </div>
                                 <div class="amenities-overlap-text">Bedroom</div>
@@ -585,7 +647,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                         </div>
                         <div class="swiper-slide">
                             <div class="amenities-overlap">
-                                <div >
+                                <div>
                                     <img width="100%" src="assets/Images/emaar/kitchen.jpeg" alt="Pool">
                                 </div>
                                 <div class="amenities-overlap-text">Kitchen</div>
@@ -599,7 +661,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                                 <div class="amenities-overlap-text">Living Room</div>
                             </div>
                         </div>
-                   
+
                     </div>
                     <div class="swiper-button-next"><i class="ri-arrow-right-line"></i></div>
                     <div class="swiper-button-prev"><i class="ri-arrow-left-line"></i></div>
@@ -641,7 +703,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                                         <div class="swiper-slide">
                                             <img src="assets/Images/emaar/mplan.jpeg" alt="Masterplan">
                                         </div>
-                   
+
 
                                     </div>
                                 </div>
@@ -837,14 +899,14 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                                                         <!-- <td>8050</td> -->
                                                         <!-- <td>16116100</td> -->
                                                     </tr>
-                                                  
-                                               
+
+
                                                 </tbody>
                                             </table>
                                         </div>
                                         <small class="text-muted mb-2">Note: GST is included in the above price.</small>
 
-  
+
                                         <!-- <div class="table-responsive">
                                             <table class="table table-bordered table-sm" style="font-size:0.9rem;">
                                                 <thead class="thead-light" style="background-color:#f4e4bc;">
@@ -1006,44 +1068,50 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
             <div class="amenities-heading">
                 <h4 class="section-heading">Grandest Experience Centre in Lucknow</h4>
                 <div class="sub-headint text-center">Visit our sales experience centre at Pocket GH-1A, Sec-G, Pocket-5,
-                    Gomti Nagar Extension, Lucknow. Gain a firsthand experience & explore our sample flats, models, floor
+                    Gomti Nagar Extension, Lucknow. Gain a firsthand experience & explore our sample flats, models,
+                    floor
                     plans, along with visual representations to get an overall appeal of Emaar Elite Oasis.</div>
             </div>
             <div class="amenities-body">
                 <div class="swiper custom-slider">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div >
+                            <div>
                                 <div class="images">
-                                    <img  style="object-fit:contain; width:100% ;"  src="assets/Images/emaar/e1.jpeg" alt="Reception_View">
+                                    <img style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e1.jpeg"
+                                        alt="Reception_View">
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div >
+                            <div>
                                 <div class="images">
-                                    <img  style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e2.jpeg" alt="Reception_View">
+                                    <img style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e2.jpeg"
+                                        alt="Reception_View">
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div >
+                            <div>
                                 <div class="images">
-                                    <img  style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e3.jpeg" alt="Reception_View">
+                                    <img style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e3.jpeg"
+                                        alt="Reception_View">
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="amenities-overlap">
                                 <div class="images">
-                                    <img  style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e4.jpeg" alt="Reception_View">
+                                    <img style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e4.jpeg"
+                                        alt="Reception_View">
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="amenities-overlap">
                                 <div class="images">
-                                    <img  style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e5.jpeg" alt="Reception_View">
+                                    <img style="object-fit:contain; width:100% ;" src="assets/Images/emaar/e5.jpeg"
+                                        alt="Reception_View">
                                 </div>
                             </div>
                         </div>
@@ -1104,12 +1172,12 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                                         <div class="swiper-slide">
                                             <div class="amenities-overlap">
                                                 <div class="images">
-                                                    <img width="100%" style="object-fit: scale-down;"  src="assets/Images/emaar/pool.jpeg"
-                                                        alt="01 (2)">
+                                                    <img width="100%" style="object-fit: scale-down;"
+                                                        src="assets/Images/emaar/pool.jpeg" alt="01 (2)">
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <!-- <div class="swiper-button-next"><i class="ri-arrow-right-line"></i></div>
                                     <div class="swiper-button-prev"><i class="ri-arrow-left-line"></i></div> -->
@@ -1122,14 +1190,14 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                                         <div class="swiper-slide">
                                             <div class="amenities-overlap">
                                                 <div class="images">
-                                                    <img width="100%" style="object-fit: scale-down;"  src="assets/Images/emaar/theatre.jpeg"
-                                                        alt="Living & Dining">
+                                                    <img width="100%" style="object-fit: scale-down;"
+                                                        src="assets/Images/emaar/theatre.jpeg" alt="Living & Dining">
                                                 </div>
                                             </div>
                                         </div>
-                                   
-                                   
-                                       
+
+
+
                                     </div>
                                     <!-- <div class="swiper-button-next"><i class="ri-arrow-right-line"></i></div>
                                     <div class="swiper-button-prev"><i class="ri-arrow-left-line"></i></div> -->
@@ -1142,12 +1210,12 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                                         <div class="swiper-slide">
                                             <div class="amenities-overlap">
                                                 <div class="images">
-                                                    <img width="100%" style="object-fit: scale-down;"  src="assets/Images/emaar/street.jpeg"
-                                                        alt="BasketBall">
+                                                    <img width="100%" style="object-fit: scale-down;"
+                                                        src="assets/Images/emaar/street.jpeg" alt="BasketBall">
                                                 </div>
                                             </div>
                                         </div>
-                                  
+
                                     </div>
                                     <!-- <div class="swiper-button-next"><i class="ri-arrow-right-line"></i></div>
                                     <div class="swiper-button-prev"><i class="ri-arrow-left-line"></i></div> -->
@@ -1160,11 +1228,12 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                                         <div class="swiper-slide">
                                             <div class="amenities-overlap">
                                                 <div class="images">
-                                                    <img width="100%" style="object-fit: scale-down;" src="assets/Images/emaar/spec.jpeg" alt="">
+                                                    <img width="100%" style="object-fit: scale-down;"
+                                                        src="assets/Images/emaar/spec.jpeg" alt="">
                                                 </div>
                                             </div>
                                         </div>
-                              
+
                                     </div>
                                     <!-- <div class="swiper-button-next"><i class="ri-arrow-right-line"></i></div>
                                     <div class="swiper-button-prev"><i class="ri-arrow-left-line"></i></div> -->
@@ -1200,7 +1269,10 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                     Elevate. We are crafting a lifestyle immersed in the vibrancy of Lucknow's bustling hotspots so you
                     can discover a neighbourhood that's as dynamic as you are.</div>
             </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.790443697975!2d81.00369097512294!3d26.814800376705723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be340f4353bd7%3A0x695b2c6fde0c7161!2sEmaar%20India%20-%20Elite%20Oasis!5e0!3m2!1sen!2sin!4v1764742368232!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.790443697975!2d81.00369097512294!3d26.814800376705723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be340f4353bd7%3A0x695b2c6fde0c7161!2sEmaar%20India%20-%20Elite%20Oasis!5e0!3m2!1sen!2sin!4v1764742368232!5m2!1sen!2sin"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
@@ -1227,13 +1299,13 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                         <i class="ri-add-line"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>•⁠  ⁠Flower Valley</br>
-•⁠  ⁠Lulu Mall</br>
-•⁠  ⁠Phoenix Palassio Mall</br>
-•⁠  ⁠Cricket Stadium (Ekana International Cricket Stadium)</br>
-•⁠  ⁠Medanta Hospital</br>
-•⁠  ⁠Police Headquarters (Uttar Pradesh Police HQ)</br>
-•⁠  ⁠Major buildings: Eldeco, Oranje, Pinnacle, The Palace</p>
+                        <p>•⁠ ⁠Flower Valley</br>
+                            •⁠ ⁠Lulu Mall</br>
+                            •⁠ ⁠Phoenix Palassio Mall</br>
+                            •⁠ ⁠Cricket Stadium (Ekana International Cricket Stadium)</br>
+                            •⁠ ⁠Medanta Hospital</br>
+                            •⁠ ⁠Police Headquarters (Uttar Pradesh Police HQ)</br>
+                            •⁠ ⁠Major buildings: Eldeco, Oranje, Pinnacle, The Palace</p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -1261,7 +1333,8 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                         <i class="ri-add-line"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Emaar Elite Oasis is just 13.8 km from Lucknow Railway Station, ensuring easy connectivity.</p>
+                        <p>Emaar Elite Oasis is just 13.8 km from Lucknow Railway Station, ensuring easy connectivity.
+                        </p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -1451,84 +1524,84 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
           ">Submit</button>
                     </form>
 
-                          <script>
-                    // ==== CONFIG: ONLY CHANGE THESE TWO LINES ====
-                    const ENTERPRISE_ID = '67a7003330262522224668d2';
-                    const API_TOKEN = '03ca4169-eee1-4d26-8f33-aa496f0078001763095481413:510dcbfb-bead-4c2f-a7f2-c85f461be485';
-                    // // ==============================================
+                    <script>
+                        // ==== CONFIG: ONLY CHANGE THESE TWO LINES ====
+                        const ENTERPRISE_ID = '67a7003330262522224668d2';
+                        const API_TOKEN = '03ca4169-eee1-4d26-8f33-aa496f0078001763095481413:510dcbfb-bead-4c2f-a7f2-c85f461be485';
+                        // // ==============================================
 
-                    const ENDPOINT = `https://next.telecrm.in/autoupdate/v2/enterprise/${ENTERPRISE_ID}/lead`;
+                        const ENDPOINT = `https://next.telecrm.in/autoupdate/v2/enterprise/${ENTERPRISE_ID}/lead`;
 
-                    document.getElementById('telecrmForm').addEventListener('submit', async (e) => {
-                        e.preventDefault(); // Stop normal form submit
+                        document.getElementById('telecrmForm').addEventListener('submit', async (e) => {
+                            e.preventDefault(); // Stop normal form submit
 
-                        // Collect values
-                        const name = document.getElementById('fullName').value.trim();
-                        const email = document.getElementById('email').value.trim();
-                        const phoneInput = document.getElementById('phone').value.trim();
-                        const bhk = Array.from(document.querySelectorAll('input[name="bhk"]:checked'))
-                            .map(cb => cb.value).join(', ') || 'Not selected';
+                            // Collect values
+                            const name = document.getElementById('fullName').value.trim();
+                            const email = document.getElementById('email').value.trim();
+                            const phoneInput = document.getElementById('phone').value.trim();
+                            const bhk = Array.from(document.querySelectorAll('input[name="bhk"]:checked'))
+                                .map(cb => cb.value).join(', ') || 'Not selected';
 
-                        // Build clean phone with +91
-                        const phone = '+91' + phoneInput.replace(/\D/g, '');
+                            // Build clean phone with +91
+                            const phone = '+91' + phoneInput.replace(/\D/g, '');
 
-                        // Build TeleCRM payload
-                        const payload = {
-                            fields: {
-                                name: name,
-                                phone: phone,
-                                email: email,
-                                rating: 0,
-                                status: 'Fresh',
-                                property1: bhk,
-                                lead_source_1: 'Emaar Elite Oasis',
-                            },
-                            actions: []
-                        };
-
-                        console.log('Sending to TeleCRM:', payload);
-
-                        try {
-                            const res = await fetch(ENDPOINT, {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'Authorization': `Bearer ${API_TOKEN}`
+                            // Build TeleCRM payload
+                            const payload = {
+                                fields: {
+                                    name: name,
+                                    phone: phone,
+                                    email: email,
+                                    rating: 0,
+                                    status: 'Fresh',
+                                    property1: bhk,
+                                    lead_source_1: 'Emaar Elite Oasis',
                                 },
-                                body: JSON.stringify(payload)
-                            });
+                                actions: []
+                            };
 
-                            const responseText = await res.text();
-                            console.log('Response:', res.status, responseText);
+                            console.log('Sending to TeleCRM:', payload);
 
-                            if (res.ok) {
-                                // 1. Download PDF
-                                const link = document.createElement('a');
-                                link.href = "Emaar Elite Oasis Brochure.pdf";
-                                link.download = 'Emaar_Elite_Oasis_Brochure.pdf'; // Optional: custom filename
-                                document.body.appendChild(link);
-                                link.click();
-                                document.body.removeChild(link);
+                            try {
+                                const res = await fetch(ENDPOINT, {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Authorization': `Bearer ${API_TOKEN}`
+                                    },
+                                    body: JSON.stringify(payload)
+                                });
 
-                                // 2. Close popup using your existing function
-                                setTimeout(() => {
-                                    if (typeof closePop === 'function') {
-                                        closePop();
-                                    }
-                                }, 300); // Small delay to ensure download starts
-                                       // Redirect to thank you page
+                                const responseText = await res.text();
+                                console.log('Response:', res.status, responseText);
+
+                                if (res.ok) {
+                                    // 1. Download PDF
+                                    const link = document.createElement('a');
+                                    link.href = "Emaar Elite Oasis Brochure.pdf";
+                                    link.download = 'Emaar_Elite_Oasis_Brochure.pdf'; // Optional: custom filename
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+
+                                    // 2. Close popup using your existing function
+                                    setTimeout(() => {
+                                        if (typeof closePop === 'function') {
+                                            closePop();
+                                        }
+                                    }, 300); // Small delay to ensure download starts
+                                    // Redirect to thank you page
                                     window.location.href = 'thank-you.html';
                                     e.target.reset(); // Clears all inputs (works because it's a <form>)
-                            } else {
-                                console.error('Error Response:', res.status, responseText);
-                                // alert(`Error ${res.status}: ${responseText || 'Failed to send.'}`);
+                                } else {
+                                    console.error('Error Response:', res.status, responseText);
+                                    // alert(`Error ${res.status}: ${responseText || 'Failed to send.'}`);
+                                }
+                            } catch (err) {
+                                console.error('Network/API Error:', err);
+                                alert('Connection failed. Check internet or console (F12).');
                             }
-                        } catch (err) {
-                            console.error('Network/API Error:', err);
-                            alert('Connection failed. Check internet or console (F12).');
-                        }
-                    });
-                </script>
+                        });
+                    </script>
 
 
 
@@ -1595,12 +1668,18 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
         <div class="container">
             <div class="text-center">
                 <h3>Emaar Elite Oasis</h3>
-                Emaar is a world-famous real estate developer established in 1997. It has constructed the record-holding real estate projects and infrastructure, including Burj Khalifa, the tallest building in the world, and Dubai Mall, known for being the largest mall in the world. Headquartered in United Arab Emirates, the firm also operates in major Indian cities. Globally renowned for its construction diversity, from retail malls, and residential properties, to hospitality & leisure, Emaar has delivered it all. Emaar has been transforming the skyline of Delhi/NCR, Gurugram, Lucknow, Mohali, Chennai, and Indore in India.
+                Emaar is a world-famous real estate developer established in 1997. It has constructed the record-holding
+                real estate projects and infrastructure, including Burj Khalifa, the tallest building in the world, and
+                Dubai Mall, known for being the largest mall in the world. Headquartered in United Arab Emirates, the
+                firm also operates in major Indian cities. Globally renowned for its construction diversity, from retail
+                malls, and residential properties, to hospitality & leisure, Emaar has delivered it all. Emaar has been
+                transforming the skyline of Delhi/NCR, Gurugram, Lucknow, Mohali, Chennai, and Indore in India.
             </div>
             <br>
             <br>
             <div class="text-center"><span class="fw-bold">Disclaimer</span>The prices mentioned are subject to change
-                without notice. Emaar Elite Oasis is marketed by Mani Land And Housing LLP, an authorized sales partner of
+                without notice. Emaar Elite Oasis is marketed by Mani Land And Housing LLP, an authorized sales partner
+                of
                 Emaar Elite Oasis. Terms and conditions apply.<br>
                 <p>Project RERA Registration No.- UPRERAPRJ944123/02/2025 and is available on the website www.up-rera.in
                     under registered projects.</p>
@@ -1609,7 +1688,8 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                 <a href="https://www.facebook.com/EmaarEliteOasis" target="_blank" rel="noopener" aria-label="Facebook">
                     <i class="ri-facebook-fill" style="font-size:20px; color:#2b4860;"></i>
                 </a>
-                <a href="https://www.instagram.com/emaar_lucknow/?hl=en" target="_blank" rel="noopener" aria-label="Instagram">
+                <a href="https://www.instagram.com/emaar_lucknow/?hl=en" target="_blank" rel="noopener"
+                    aria-label="Instagram">
                     <i class="ri-instagram-fill" style="font-size:20px; color:#c13584;"></i>
                 </a>
             </div>
@@ -1806,22 +1886,28 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
         thankYou();
     </script>
 
-        <!-- Site entry popup: appears on first page load -->
-    <div id="entryPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1200; justify-content:center; align-items:center;">
+    <!-- Site entry popup: appears on first page load -->
+    <div id="entryPopup"
+        style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1200; justify-content:center; align-items:center;">
         <div style="background:#fff; width:92%; max-width:420px; border-radius:12px; padding:18px; position:relative;">
-            <button id="entryClose" aria-label="Close" style="position:absolute; right:12px; top:12px; background:transparent; border:none; font-size:20px; cursor:pointer;">&times;</button>
+            <button id="entryClose" aria-label="Close"
+                style="position:absolute; right:12px; top:12px; background:transparent; border:none; font-size:20px; cursor:pointer;">&times;</button>
             <h3 style="text-align:center; margin-top:4px;">Enquire Now</h3>
             <form id="entryForm" style="max-width:100%; margin:6px auto; text-align:center;">
-                <input type="text" id="entryFullName" name="fullName" placeholder="Full Name" required style="width:100%; padding:12px 14px; margin:10px 0; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
+                <input type="text" id="entryFullName" name="fullName" placeholder="Full Name" required
+                    style="width:100%; padding:12px 14px; margin:10px 0; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
                 <div style="display:flex; gap:10px; margin:10px 0;">
                     <div style="flex:1; position:relative;">
-                        <input type="tel" id="entryPhone" name="phone" placeholder="Phone" required style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
+                        <input type="tel" id="entryPhone" name="phone" placeholder="Phone" required
+                            style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
                     </div>
                     <div style="flex:1; position:relative;">
-                        <input type="email" id="entryEmail" name="email" placeholder="Email" required style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
+                        <input type="email" id="entryEmail" name="email" placeholder="Email" required
+                            style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
                     </div>
                 </div>
-                <button type="submit" id="entrySubmit" style="width:100%; padding:14px; margin-top:10px; background:#192a3b; color:white; border:none; border-radius:50px; font-weight:600; font-size:16px; cursor:pointer;">Submit</button>
+                <button type="submit" id="entrySubmit"
+                    style="width:100%; padding:14px; margin-top:10px; background:#192a3b; color:white; border:none; border-radius:50px; font-weight:600; font-size:16px; cursor:pointer;">Submit</button>
             </form>
         </div>
     </div>
@@ -1883,7 +1969,7 @@ Emaar Elite Oasis Lucknow is a perfect property for anyone who is searching for 
                         rating: 0,
                         status: 'Fresh',
                         property1: 'Popup Enquiry',
-                        lead_source_1: 'Pardos Okas',
+                        lead_source_1: 'Emaar Elite Oasis',
                     },
                     actions: []
                 };

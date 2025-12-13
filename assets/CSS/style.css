@@ -795,6 +795,7 @@ header.sticky {
     /* 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
+   
 }
 
 .play_pause_button {
