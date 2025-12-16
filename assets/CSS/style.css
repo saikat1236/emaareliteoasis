@@ -400,6 +400,47 @@ header.sticky {
     height: auto;
 }
 
+/* Location media: Instagram reel + Google Map responsive layout */
+.location-media {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+.location-media .instagram-wrapper {
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+.location-media .instagram-wrapper .instagram-media {
+    width: 100% !important;
+}
+.location-media .map-wrapper {
+    flex: 1 1 70%;
+    max-width: 70%;
+    min-width: 0;
+}
+.location-media .map-wrapper iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .location-media {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .location-media .instagram-wrapper,
+    .location-media .map-wrapper {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .location-media .map-wrapper iframe {
+        height: 350px;
+    }
+}
+
 .popup img {
     border-radius: 10px;
     width: 100%;
