@@ -666,7 +666,7 @@ header.sticky {
 }
 
 .contact-body {
-    width: 100%;
+    width: 50%;
     padding: 50px;
     background: #fff;
     margin: 20px auto 0px;
@@ -2092,6 +2092,29 @@ button:hover {
     background-color: #ffffffc2;
 }
 
+/* Float the contact form similar to the RERA popup */
+.contact-body {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 380px;
+    max-width: 420px;
+    box-sizing: border-box;
+    z-index: 2;
+    padding: 16px;
+    background-color: rgba(255,255,255,0.95);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.contact-body form {
+    margin: 0;
+    max-width: 100%;
+}
+
 .rera-button {
     background-color: var(--primary-color);
     color: #fff;
@@ -2212,6 +2235,14 @@ form>div:nth-child(6)>div:nth-child(1)>div>label {
         margin: 60px auto 10px auto;
         width: 90%;
         border: 1px solid #dadada;
+    }
+
+    .contact-body {
+        position: relative;
+        margin: 60px auto 10px auto;
+        width: 90%;
+        border: 1px solid #dadada;
+        box-shadow: none;
     }
 
     .image-box {
