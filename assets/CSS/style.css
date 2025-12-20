@@ -2101,7 +2101,7 @@ button:hover {
     width: 380px;
     max-width: 420px;
     box-sizing: border-box;
-    z-index: 2;
+    z-index: 1;
     padding: 16px;
     background-color: rgba(255,255,255,0.95);
     border-radius: 12px;
@@ -2232,17 +2232,24 @@ form>div:nth-child(6)>div:nth-child(1)>div>label {
 
     .rera-project-popup {
         position: relative;
-        margin: 60px auto 10px auto;
+        margin: 20px auto 10px auto; /* reduced top margin so popup doesn't push too far */
         width: 90%;
         border: 1px solid #dadada;
+        z-index: 10; /* ensure popup stays above contact form on small screens */
     }
 
     .contact-body {
         position: relative;
-        margin: 60px auto 10px auto;
+        margin: 10px auto 30px auto; /* add top spacing so it sits below the popup */
         width: 90%;
         border: 1px solid #dadada;
         box-shadow: none;
+        z-index: 5; /* lower than popup */
+    }
+
+    /* Ensure the popup title is above other elements */
+    .rera-project-title {
+        z-index: 12;
     }
 
     .image-box {
