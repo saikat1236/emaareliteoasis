@@ -1136,8 +1136,7 @@
             </div> -->
         </div>
     </section>
-    <!-- End Amenities -->
-    <!-- Start Gallery -->
+ 
     <section id="gallery">
         <div class="container">
             <div class="sneak-peek-heading">
@@ -1902,30 +1901,7 @@
     </script>
 
     <!-- Site entry popup: appears on first page load -->
-    <div id="entryPopup"
-        style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1200; justify-content:center; align-items:center;">
-        <div style="background:#fff; width:92%; max-width:420px; border-radius:12px; padding:18px; position:relative;">
-            <button id="entryClose" aria-label="Close"
-                style="position:absolute; right:12px; top:12px; background:transparent; border:none; font-size:20px; cursor:pointer;">&times;</button>
-            <h3 style="text-align:center; margin-top:4px;">Enquire Now</h3>
-            <form id="entryForm" style="max-width:100%; margin:6px auto; text-align:center;">
-                <input type="text" id="entryFullName" name="fullName" placeholder="Full Name" required
-                    style="width:100%; padding:12px 14px; margin:10px 0; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
-                <div style="display:flex; gap:10px; margin:10px 0;">
-                    <div style="flex:1; position:relative;">
-                        <input type="tel" id="entryPhone" name="phone" placeholder="Phone" required
-                            style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
-                    </div>
-                    <div style="flex:1; position:relative;">
-                        <input type="email" id="entryEmail" name="email" placeholder="Email" required
-                            style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:15px;">
-                    </div>
-                </div>
-                <button type="submit" id="entrySubmit"
-                    style="width:100%; padding:14px; margin-top:10px; background:#192a3b; color:white; border:none; border-radius:50px; font-weight:600; font-size:16px; cursor:pointer;">Submit</button>
-            </form>
-        </div>
-    </div>
+  
 
     <script>
         // Show entry popup when the page loads, but only once per user using localStorage
